@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layouts withfraction columns</title>
+    <style>
+        .grid-fr{
+            display: grid;
+            grid-template-columns: repeat(3,1fr); /* This creates 3 equal columns */
+            gap: 10px;
+            margin:10px;
+        }
+        .item{
+            background-color:chartreuse;
+            color: blueviolet;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+     <!-- Fixed width column using Fractional columns -->
+    <div class="grid-fr">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+</body>
+</html>
