@@ -1,4 +1,4 @@
-//Reduce mathod
+//Reduce method
 
 let numbers = [2,4,6,8,10];
 let sum = numbers.reduce((intermediateSum,current)=>intermediateSum+current,0);
