@@ -14,8 +14,13 @@ document.getElementById("saveBtn").addEventListener("click",function(){
 });
 
 document.getElementById("readBtn").addEventListener("click",function(){
+    try{
     const up = localStorage.getItem("userProfile");
     console.log(JSON.parse(up));
     console.log(up);
     jsonOutput.textContent = "userProfile" + up;
+    }
+    catch(err){
+        jsonOutput.textContent = "JSON Parsing failed";
+    }
 });
