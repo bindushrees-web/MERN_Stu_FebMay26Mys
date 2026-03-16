@@ -14,4 +14,3 @@ console.log(commonUses[1]);
 commonUses.forEach((commonUse,index) => {
     console.log(`${index+1}.${commonUse}`);
 })
-
