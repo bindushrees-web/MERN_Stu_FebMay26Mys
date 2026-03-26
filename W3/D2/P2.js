@@ -1,6 +1,6 @@
 // Comparision Operators
 
-console.log("Coparision operator");
+console.log("Comparision operator");
 let x=2, y='4';
 console.log("x==y: ",x==y); //Loose equality
 console.log("x===y: ",x===y); //Strict equality
