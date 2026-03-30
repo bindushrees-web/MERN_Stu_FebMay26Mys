@@ -5,7 +5,13 @@ const app = express();
 
 //To read
 app.get("/users",function(req,res){
-    res.send("Returning all Users");
+    res.status(200).json([
+        {message:"Success"},
+        { id:1, name:"Bindu"},
+        { id:2, name:"Akshay"},
+        { id:3, name:"Nisarga"}
+    ]);
+    // res.send("Returning all Users");
 });
 
 //To create
