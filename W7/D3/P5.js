@@ -1,6 +1,7 @@
 // JWT Fundamentals: token generation and verification
 const jwt = require("jsonwebtoken");
 const secretKey = "qwerty123";
+ // const newSecretKey = "xzy123";
 
 //Payload holds small non-sensitive data
 const payload = { userId: 101, role: "admin"};
@@ -18,6 +19,7 @@ console.log("JWT part count:",tokenParts.length);
 try{
     // jwt.verify() checks trust, signature and expiration
     const verifiedPayload = jwt.verify(token,secretKey);
+    // const verifiedPayload = jwt.verify(token,newSecretKey);
     console.log("Verified Payload",verifiedPayload);
 }
 catch(error){
