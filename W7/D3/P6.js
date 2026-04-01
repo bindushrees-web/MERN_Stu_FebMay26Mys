@@ -6,19 +6,13 @@ const wrongsecretKey = "ghghj123";
 
 function loginUser(email,password){
     if(email === "correct@email.com" && password === "mp123"){
-         const token = jwt.sign({
-            user:101,
-            email:email,
-            role:"student"
-         },secretKey,{expiresIn:"1h"});
+         const token = jwt.sign({user:101, email:email, role:"student"},secretKey,{expiresIn:"1h"});
          return{
-            success:true,
-            token:token
+            success:true, token:token
          };
     }
      return{
-            success:false,
-            message:"Invalid Credentials"
+            success:false, message:"Invalid Credentials"
         };
 }
 const loginResult = loginUser("correct@email.com","mp123");
