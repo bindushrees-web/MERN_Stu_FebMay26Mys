@@ -7,7 +7,7 @@ const app = express();
 app.use(session({ secret: "MySecretKey", resave: false, saveUninitialized: false, cookie: {maxAge:60*60*1000}}));
 
 app.get("/login", function(req, res) {
-    //After getting login it had these details
+    //Simulate the database upon successfull login
     req.session.user = { id: 201, username: "Ammu", role: "student" };
     res.send("Session details stored after login.");
 });
