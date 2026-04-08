@@ -1,4 +1,4 @@
-// functions for booking handling are created
+// functions for ticket booking handling are created
 const movies = require("../data/movies");
 const CustomError = require("../utils/CustomError");
 
