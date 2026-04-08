@@ -1,4 +1,4 @@
-// CXhecks the permission for the req and allows it or rejects it
+// Checks the permission for the req and allows it or rejects it
 const CustomError = require("../utils/CustomError");
 function roleMiddleware(...allowedRoles) {
     return(req, res, next) => {
