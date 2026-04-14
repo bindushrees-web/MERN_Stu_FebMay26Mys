@@ -19,14 +19,14 @@ async function runRemoveHookDemo() {
             title: "Database design basic",
             tag: "remove-hook-demo"
         });
-        await course.save();
-        console.log("Document save successfully");
+        // await course.save();
+        // console.log("Document save successfully");
 
         await Course.deleteOne({title:"Database design basic"});
         console.log("Document deleted successfully");
 
-        await mongoose.connection.close();
-        console.log("Connection closed");
+        // await mongoose.connection.close();
+        // console.log("Connection closed");
     }
     catch(error) {
         console.log("Remove hook error",error.message);
