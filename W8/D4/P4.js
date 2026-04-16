@@ -1,0 +1,8 @@
+// OTP generation using Crypto build-in module of NodeJS
+const crypto = require("crypto");
+const mongoose = require("mongoose");
+
+function generateOTP(length = 6) {
+    return crypto.randomInt(0,10**length).toString().padStart(length,"0");
+}
+console.log("OTP: ",generateOTP());
