@@ -32,13 +32,12 @@ const OTP = mongoose.model("OTP",otpSchema);
 
 async function generateOTP(userId) {
     const otp = crypto.randomInt(100000,999999).toString();
-
     await OTP.findOneAndUpdate(
         {userId},
         {
             userId,
             otp,
-            expiresAt: new Date(Date.now() - 6000), // If it is + it wont give expired 
+            expiresAt: new Date(Date.now() - 6000),
             attempts: 0
         },
         {
