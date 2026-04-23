@@ -66,8 +66,7 @@ exports.deleteShow = async (req, res, next) => {
         await showService.deleteShow(req.params.id);
         res.status(200).json({
             success: true,
-            message: "Show deleted successfully",
-            data: show,
+            message: "Show deleted successfully"
         });
     }
     catch(error) {
