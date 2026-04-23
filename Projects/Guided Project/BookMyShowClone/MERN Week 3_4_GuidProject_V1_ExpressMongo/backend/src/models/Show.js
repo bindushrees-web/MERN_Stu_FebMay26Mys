@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const Movie = require("./Movie");
-
+// Sub schema
 const seatSchema = new mongoose.Schema({
     seatNumber: {
         type: String,
@@ -29,15 +28,15 @@ const showSchema = new mongoose.Schema({
         required: true,
     },
     totalSeats: {
-        type: String,
+        type: Number,
         required: true,
     },
     availableSeats: {
-        type: String,
+        type: Number,
         required: true,
     },
     seats: {
-        type:[seatSchema],
+        type: [seatSchema],
         required: true,
     },
     isActive: {
@@ -49,14 +48,20 @@ const showSchema = new mongoose.Schema({
 });
 
 // Compound Index:
-showSchema.index({movieId:1, date: 1});
+showSchema.index({movieId: 1, date: 1});
 
-// Add Validation
-showSchema.pre("save",function(next) {
-    if(this.availableSeats > this.totalSeats) {
-        return next(new Error("Available seats cannot exceed total seats"));
+//Add Validation
+// showSchema.pre("save",function(next){
+//     if (this.availableSeats>this.totalSeats) {
+//         return next(new Error("Available seats cannot exceed total seats"));
+//     }
+//     next();
+// });
+// New Add Validation code
+showSchema.pre("save", async function () {
+    if (this.availableSeats > this.totalSeats) {
+        throw new Error("Available seats cannot exceed total seats");
     }
-    next();
 });
 
 module.exports = mongoose.model("Show",showSchema);
