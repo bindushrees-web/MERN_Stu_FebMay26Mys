@@ -9,7 +9,7 @@ router.get("/",showController.getShows);
 router.get("/:id",showController.getShowById);
 
 // Admin only route
-router.post("/",protect,authorize("admin"),showController.createMovie);
+router.post("/",protect,authorize("admin"),showController.createShow);
 router.put("/:id",protect,authorize("admin"),showController.updateShow);
 router.delete("/:id",protect,authorize("admin"),showController.deleteShow);
 
