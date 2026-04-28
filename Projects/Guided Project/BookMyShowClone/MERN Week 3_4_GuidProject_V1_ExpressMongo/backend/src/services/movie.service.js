@@ -1,4 +1,5 @@
 const Movie = require("../models/Movie");
+const CustomError = require("../utils/customError");
 
 // Create Movie
 exports.createMovie = async (data) => {
@@ -57,7 +58,7 @@ exports.updateMovie = async (id, data) => {
     });
 
     if (!movie)
-        throw new Error("Movie not found");
+        throw new CustomError("Movie not found",404);
     return movie;
 };
 
@@ -68,5 +69,5 @@ exports.deleteMovie = async (id) => {
         isActive: false,
     });
     if (!movie)
-        throw new Error("Movie not found");
+        throw new CustomError("Movie not found",404);
 };
