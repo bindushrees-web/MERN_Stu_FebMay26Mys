@@ -11,30 +11,29 @@ function NameInput1({value, onChange}) {
     return(
         <div>
             <label>Input 1:</label>
-            <input value={value}
+            <input value = { value } 
             onChange = {(e) => onChange(e.target.value)}
             placeholder = "Type a name..."
             />
         </div>
     )
 }
-
-// Second Child Component
-function NameInput2({value, onChange}) {
-     return(
+// Second child component
+function NameInput2({value,onChange}){
+    return(
         <div>
             <label>Input 2:</label>
-            <input value={value}
-            onChange = {(e) => onChange(e.target.value)}
-            placeholder = "This gets updated..."
+            <input value={value} 
+            onChange = {(e)=>onChange(e.target.value)}
+            placeholder="This gets updated..."
             />
         </div>
     )
 }
 
-// Parent Component
-export function SharedStateParent() {
-    const [name, setName] = useState('');
+// Parent component
+export function SharedStateParent(){
+    const [name, setName] = useState('Manoj');
     return(
         <div>
             <h3>Shared state demo</h3>

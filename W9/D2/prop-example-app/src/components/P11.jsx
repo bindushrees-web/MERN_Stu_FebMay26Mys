@@ -1,22 +1,21 @@
-// Prop Validation
-import React from "react";
-import PropTypes from "prop-types";
-function Profile({name,age}){
+import PropTypes from 'prop-types';
+// Prop validation
+function Profile({name,age}) {
     return(
-        <div className="card">
-            <p>Name:{name}</p>
-            <p>Age:{age}</p>
+        <div className="card"> 
+            <p>{name}</p>
+            <p>{age}</p>
         </div>
     );
 }
-Profile.propTypes={
-    name:PropTypes.string.isRequired,
-    age:PropTypes.number.isRequired,
+Profile.propTypes = {
+    name: PropTypes.string.isRequired,
+    name: PropTypes.number.isRequired,
 };
-export function PropTypesDemo(){
+export function PropTypesDemo() {
     return(
         <>
-          <Profile name="Bindu" age={22} />
+            <Profile name="Bindu" age={21} />
         </>
-    )
+    );
 }
