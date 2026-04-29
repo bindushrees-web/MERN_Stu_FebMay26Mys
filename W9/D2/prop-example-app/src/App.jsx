@@ -5,6 +5,9 @@ import { PropsChildren } from './components/P3'
 import {PropDrillingDemo} from './components/P4'
 import './App.css'
 import { SharedStateParent } from './components/P5'
+import { CompositionDemo } from './components/P6'
+import { ObjectsAndArrayProps } from './components/P7'
+import { PropsImmutability } from './components/P8'
 function App(){
   return(
     <>
@@ -12,7 +15,10 @@ function App(){
     {/* <PropDestructuring /> */}
     {/* <PropsChildren /> */}
     {/* <PropDrillingDemo /> */}
-    <SharedStateParent />
+    {/* <SharedStateParent /> */}
+    {/* <CompositionDemo /> */}
+    {/* <ObjectsAndArrayProps /> */}
+    < PropsImmutability />
     </>
   )
 }
