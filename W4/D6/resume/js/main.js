@@ -1,5 +1,6 @@
 // main.js
 document.addEventListener("DOMContentLoaded", function () {
+    renderProjects();
     renderSkills();
     initModal();
     initContactValidation();
@@ -10,4 +11,5 @@ document.addEventListener("DOMContentLoaded", function () {
     initProjectFilter();
     initProjectSearch();
     applyFilters();
+    initTypingAnimation();
 });
