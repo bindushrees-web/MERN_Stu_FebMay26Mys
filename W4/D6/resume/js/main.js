@@ -2,6 +2,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     renderProjects();
     renderSkills();
+    renderEducation();
+    
     initModal();
     initContactValidation();
     initThemeToggle();
