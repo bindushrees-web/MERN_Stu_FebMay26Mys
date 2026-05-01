@@ -45,30 +45,12 @@ function renderProjects(projects = projectsData) {
         projectStatus.className = "text-sm";
         projectStatus.textContent = "Status: " + project.status;
 
-        // Links
-        const projectLinks = document.createElement("div");
-        projectLinks.className = "mt-4 flex gap-4 justify-center";
-
-        const liveLink = document.createElement("a");
-        liveLink.href = project.liveDemo;
-        liveLink.textContent = "Live";
-        liveLink.className = "text-blue-500 underline";
-
-        const githubLink = document.createElement("a");
-        githubLink.href = project.github;
-        githubLink.textContent = "Code";
-        githubLink.className = "text-green-500 underline";
-
-        projectLinks.appendChild(liveLink);
-        projectLinks.appendChild(githubLink);
-
         // Append
         card.appendChild(projectName);
         card.appendChild(projectDescription);
         card.appendChild(projectCategory);
         card.appendChild(projectTechnologies);
         card.appendChild(projectStatus);
-        card.appendChild(projectLinks);
 
         projectContainer.appendChild(card);
     });
