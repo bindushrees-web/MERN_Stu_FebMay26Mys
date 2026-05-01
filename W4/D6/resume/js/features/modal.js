@@ -33,4 +33,18 @@ function initModal(){
         }
     });
     console.log("Modal opened successfully");
+
+
+    const navBtn = document.getElementById("nav-contact-btn");
+
+    if (navBtn) {
+        navBtn.addEventListener("click", () => {
+            modal.classList.remove("hidden");
+
+            setTimeout(() => {
+                modalContent.classList.remove("scale-95", "opacity-0");
+                modalContent.classList.add("scale-100", "opacity-100");
+            }, 10);
+        });
+    }
 }
