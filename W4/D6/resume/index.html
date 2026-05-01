@@ -23,7 +23,8 @@
     <section class="min-h-screen flex flex-col lg:flex-row lg:items-center lg:justify-between px-8 lg:px-16 py-20 gap-12 lg:gap-20">
 
         <div class="order-2 lg:order-1 flex-1 lg:max-w-lg text-center lg:text-left">
-
+            <p id="greeting" class="text-lg font-semibold text-blue-500 mb-2"></p>
+            <p id="location-msg" class="text-sm text-gray-500 mb-2"></p>
             <h1 id="Myname" class="text-5xl mb-6">Bindu Shree S</h1>
 
             <p id="typing-text" class="text-xl lg:text-2xl text-slate-600 font-bold mb-10 max-w-md mx-auto lg:mx-0"></p>
@@ -120,7 +121,7 @@
 
                 <button class="filter-btn px-4 py-2 rounded border" data-category="Backend">Backend</button>
 
-                <button class="filter-btn px-4 py-2 rounded border" data-category="Full Stack">Full Stack</button>
+                <button class="filter-btn px-4 py-2 rounded border" data-category="Full Stack">AI</button>
 
                 <button class="filter-btn px-4 py-2 rounded border" data-category="AI">AI</button>
 
@@ -152,8 +153,7 @@
 
     <!-- SKILLS -->
 
-    <section id="skills" class="py-24 px-8 lg:px-16 bg-blue-100">
-
+    <section id="skills" class="py-24 px-8 lg:px-16 bg-gray-100">
         <div class="max-w-7xl mx-auto">
 
             <h2 id="skill" class="text-4xl text-center font-bold mb-20">
@@ -162,7 +162,7 @@
 
             <!-- Dynamic Skills Container -->
 
-            <div id="skills-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div id="skills-container" class="flex justify-center">
             </div>
 
         </div>
@@ -228,7 +228,7 @@
     </button>
 
     <!-- MAIN JS ENTRY -->
-     <script src="js/data/projects.js"></script>
+    <script src="js/data/projects.js"></script>
     <script src="js/data/skills.js"></script>
     <script src="js/features/skills-render.js"></script>
     <script src="js/features/modal.js"></script>
@@ -241,6 +241,8 @@
     <script src="js/features/project-search.js"></script>
     <script src="js/features/project-filter.js"></script>
     <script src="js/features/typing-animation.js"></script>
+    <script src="js/features/greeting.js"></script>
+    <script src="js/features/geolocation.js"></script>
     <script src="js/main.js"></script>
 
 </body>

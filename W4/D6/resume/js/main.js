@@ -12,4 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
     initProjectSearch();
     applyFilters();
     initTypingAnimation();
+    initGreeting();
+    initGeolocation();
 });
