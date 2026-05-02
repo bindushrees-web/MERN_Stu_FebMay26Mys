@@ -24,7 +24,8 @@ const projectsData = [
     description:
       "Developed a CLI-based LinkedIn inspired application using Node.js and Express.js that simulates core networking platform features such as user profiles, post management, authentication flow and structured backend routing.",
     technologies: ["Node.js", "Express.js", "JavaScript", "CLI", "MongoDB"],
-    status: "Live"
+    status: "Live",
+    github: "https://github.com/bindushrees-web/MERN_Stu_FebMay26Mys"
   },
   {
     id: 4,
