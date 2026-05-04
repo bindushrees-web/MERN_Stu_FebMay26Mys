@@ -1,7 +1,7 @@
 const projectsData = [
   {
     id: 1,
-    name: "AI for personal assisstance",
+    name: "AI For Personal Assisstance",
     category: "Full Stack Development (AI/NLP-based)",
     description:
       "Designed and implemented an NLP-based personal assistant to handle queries, provide information, and improve user productivity.",
@@ -10,7 +10,7 @@ const projectsData = [
   },
   {
     id: 2,
-    name: "Barcode and QRcode detection with TTS",
+    name: "Barcode and QRcode Detection With TTS",
     category: "Computer Vision / Artificial Intelligence",
     description:
       "Developed a computer vision-based system to detect and decode barcodes and QR codes from images, and convert the extracted information into speech using Text-to-Speech for improved accessibility.",
@@ -19,17 +19,17 @@ const projectsData = [
   },
   {
     id: 3,
-    name: "LinkedIn clone",
+    name: "LinkedIn Clone",
     category: "Backend Development",
     description:
       "Developed a CLI-based LinkedIn inspired application using Node.js and Express.js that simulates core networking platform features such as user profiles, post management, authentication flow and structured backend routing.",
     technologies: ["Node.js", "Express.js", "JavaScript", "CLI", "MongoDB"],
     status: "Live",
-    github: "https://github.com/bindushrees-web/MERN_Stu_FebMay26Mys"
+    github: "https://github.com/bindushrees-web/MERN_Stu_FebMay26Mys/tree/main/Team%20Project/CLI-Based%20Professional%20Networking%20Platform/MERN_Week2_V1.0/linkedin-backend"
   },
   {
     id: 4,
-    name: "Responsive portfolio website",
+    name: "Responsive Portfolio Website",
     category: "Frontend Development",
     description:
       "Designed and deployed a premium personal portfolio website with dark mode, animations, sublication section and recriter-focused branding.",
