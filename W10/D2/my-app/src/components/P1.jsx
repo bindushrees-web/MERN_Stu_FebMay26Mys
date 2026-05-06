@@ -2,7 +2,7 @@
 // Context: lets you share data (state) between components without passing props down manually at every level.
 
 import { createContext, useContext, useState } from "react"
-
+import { useDocumentTitle } from "./P2";
 // Why to use useContext?
 // 1. Helps us to avoid prop drilling (passing props down multiple levels).
 // 2. Useful for shared values:
@@ -52,7 +52,7 @@ function Layout() {
 export function UseContextIntro() {
     // Shared state for theme
     const [theme, setTheme] = useState('light');
-
+    useDocumentTitle('UseContext Example');
     // Toggle theme function
     const toggleTheme = () => {
         setTheme( theme === 'light' ? 'dark' : 'light');
