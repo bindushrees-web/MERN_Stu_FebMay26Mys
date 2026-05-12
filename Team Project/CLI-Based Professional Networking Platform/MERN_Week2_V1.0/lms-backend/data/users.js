@@ -1,0 +1,6 @@
+const users = [
+  { id: 1, username: 'student1', password: 'pass123', role: 'student' },
+  { id: 2, username: 'admin1', password: 'admin123', role: 'admin' }
+];
+
+module.exports = users;
