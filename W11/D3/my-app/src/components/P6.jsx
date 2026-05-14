@@ -1,55 +1,50 @@
-//Error boundary & file upload progress
-//Error boundary:its a special class component that catches 
-//rending errors in its child components tree and shows a fallback UI
-//Error bondaries does not catch:
-// error inside event handler
-//error inside setTimeout/setInterval
-//error inside async code etc
-//It is used only for "redering and lifecycle methods errors".
+// Error boundary & file upload progress
+// Error boundary: its a special class component that catches
+// rendering errors in its child component tree and shows a fallback UI
+// Error boundary does not catch:
+    // errors inside event handlers
+    // errors inside setTimeout/ setInterval
+    // errors inside async code etc
+    // It is used only for "rendering and lifecycle methods errors"
 
-import React,{ Component, useEffect, useState,useRef} from "react";
-
-class ErrorBoundary extends React.Component {
-    constructor(props) {
+import React, { useState, useEffect, useRef } from "react";
+class ErrorBoundary extends React.Component{
+    constructor(props){
         super(props);
+    
+    this.state = {
+        hasError: false,
+        errorMessage : "",
+    };
+}
+// Lifecycle method updates state when a child throws an error during rendering
+static getDerivedStateFromError(error){
+    return{
+        hasError: true,
+        errorMessage : error.message || "Something went wrong",
+    };
+}
 
-        this.state = {
-            hasError: false,
-            errorMessage:"",
-        };
-    }
-
-
-    //LifeCycle method updates the state whne child throws a error during rendering
-    static getDerivedStateFromError(error) {
-        return {
-            hasError: false,
-            errorMessage :error.message || "Something went wrong",
-        };
-    }
-
-    ComponentDidCatch(error, errorInfo) {
-        console.error("Error caught by ErrorBody:", error, errorInfo);
-    }
-    render() {
-        if (this.state.hasError) {
-            return (
-                <section>
-                    <h2>Something Went Wrong</h2>
-                    <p>{this.state.errorMessage}</p>
-                </section>
-            )
-        }
-        return this.props.children;
-    }
+componentDidCatch(error,errorInfo){
+    console.error("Error caught by ErrorBoundary:",error,errorInfo);
+}
+render(){
+    if (this.state.hasError) {
+        return(
+            <section>
+                <h2>Something went wrong</h2>
+                <p>{this.state.errorMessage}</p>
+            </section>
+        );
+    } return this.props.children;
+}
 }
 
 function UploadComponent() {
-    const [progress,setProgress]=useState(0);
-    const [isLoading,setIsLoading]=useState(false);
-    const[IsUploading,setIsUploading]=useState(false);
+    const [progress,setProgress] = useState(0);
+    const [isUploading,setIsUploading] = useState(false);
 
-    const intervalRef =useRef(null);
+    const intervalRef = useRef(null);
 
     useEffect(()=>{
         return()=>{
@@ -57,48 +52,51 @@ function UploadComponent() {
         };
     },[]);
 
-    function StartUpload() {
-        if(isLoading){  //If upload is already running ,then do nothing
+    function startUpload() {
+        if (isUploading) { //If upload is already running, then do nothing
             return;
         }
         setProgress(0);
-        setIsLoading(true);
+        setIsUploading(true);
 
-        intervalRef.current=setInterval(()=>{
+        intervalRef.current = setInterval(()=>{
             setProgress((prevProgress)=>{
-                const nextProgress=prevProgress+10;
+                const nextProgress = prevProgress + 10;
 
-                if(nextProgress >=100){
+                if (nextProgress >=100) {
                     clearInterval(intervalRef.current);
-                    setIsLoading(false);
+                    setIsUploading(false);
                     return 100;
                 }
                 return nextProgress;
             });
         },300);
     }
+
     function resetUpload() {
         clearInterval(intervalRef.current);
         setProgress(0);
-        setIsUpload(false);
+        setIsUploading(false);
     }
     return(
         <section>
             <h2>File upload & error boundaries</h2>
-            <button onClick={StartUpload} 
-            disabled={IsUploading}>{IsUploading?"Uploading...":"Upload File"}</button>
+            <button onClick={startUpload}
+            disabled={isUploading}>{isUploading?"Uploading...":"Upload File"}
+            </button>
             <button onClick={resetUpload} 
-            disabled={IsUploading && progress===0}>Reset</button>
+            disabled={isUploading && progress===0}>Reset
+            </button>
             <progress value={progress} max="100"></progress>
             <p>{progress}%</p>
-            {progress===100 && <p>upload Complete.</p>}
+            {progress === 100 && <p>Upload Complete.</p>}
         </section>
     );
 }
 export function UploadErrorBoundary() {
     return(
         <ErrorBoundary>
-            <UploadComponent/>
+            <UploadComponent />
         </ErrorBoundary>
     );
 }
