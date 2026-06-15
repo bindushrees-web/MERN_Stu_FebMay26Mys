@@ -1,6 +1,9 @@
+// src/main.jsx
+
+
 /*
 =========================================================
-SPRINT 1 – CORE APPLICATION BOOTSTRAPPING
+SPRINT 2 – AUTH PROVIDER INTEGRATION
 
 
 TOPICS COVERED:
@@ -8,35 +11,37 @@ TOPICS COVERED:
 
 ✓ React 18 Root API
 ✓ BrowserRouter
-✓ Global CSS Import
+✓ Context Provider Composition
+✓ Global Authentication Availability
 
 
 WHY THIS FILE?
 
 
-This is the true entry point of the application.
+main.jsx is the true entry point
+of the application.
 
 
-Responsibilities:
+Sprint 1:
 
 
-index.html
+BrowserRouter
 ↓
-main.jsx
+App
+
+
+Sprint 2:
+
+
+AuthProvider
 ↓
 BrowserRouter
 ↓
 App
-↓
-Entire React Application
 
 
-Without BrowserRouter:
-
-
-✓ Routes won't work
-✓ Navigation won't work
-✓ Protected Routes won't work
+This ensures authentication state
+is available throughout the app.
 
 
 =========================================================
@@ -52,51 +57,108 @@ import App from "./App";
 import "./index.css";
 
 
+import { AuthProvider } from "./context/AuthContext";
+
+
 ReactDOM.createRoot(
   document.getElementById("root")
 ).render(
-
-
   <React.StrictMode>
 
 
     {/*
-      BrowserRouter listens to:
+    =====================================================
+    AUTH PROVIDER
 
 
-      • Current URL
-      • Browser Back
-      • Browser Forward
+    Makes authentication state available
+    globally.
 
 
-      and synchronizes React Router
-      with the browser.
+    Examples:
+
+
+    Navbar
+    ↓
+    useAuth()
+
+
+    ProtectedRoute
+    ↓
+    useAuth()
+
+
+    Login
+    ↓
+    useAuth()
+
+
+    =====================================================
     */}
 
 
-    <BrowserRouter>
+    <AuthProvider>
 
 
-      <App />
+      <BrowserRouter>
 
 
-    </BrowserRouter>
+        <App />
+
+
+      </BrowserRouter>
+
+
+    </AuthProvider>
 
 
   </React.StrictMode>
-
-
 );
 
 
 /*
 =========================================================
-VERIFICATION
+APPLICATION FLOW
 
 
-✓ React 18 compatible
-✓ Vite compatible
-✓ React Router compatible
-✓ Global CSS imported
+index.html
+↓
+main.jsx
+↓
+AuthProvider
+↓
+BrowserRouter
+↓
+App.jsx
+↓
+AppRoutes.jsx
+↓
+Layouts
+↓
+Pages
+
+
+=========================================================
+
+
+KEY TAKEAWAYS
+
+
+1. Context Providers should wrap
+   the components that consume them.
+
+
+2. Authentication becomes globally
+   accessible.
+
+
+3. BrowserRouter and AuthProvider
+   work together seamlessly.
+
+
+4. This prepares the application
+   for real login/logout flows.
+
+
 =========================================================
 */
