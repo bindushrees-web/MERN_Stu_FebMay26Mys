@@ -152,6 +152,9 @@ const MovieManagement = lazy(() => import("../pages/admin/MovieManagement"));
 
 const MovieDetails = lazy(() => import("../pages/MovieDetails"));
 
+const MyBookings = lazy(() => import("../pages/MyBookings"));
+
+const ShowManagement = lazy(() => import("../pages/admin/ShowManagement"));
 
 /*
 =========================================================
@@ -226,7 +229,7 @@ export default function AppRoutes() {
         */}
 
 
-        <Route element={<PublicLayout />}>
+       <Route element={<PublicLayout />}>
           <Route path="/" element={<Home />} />
 
 
@@ -240,33 +243,27 @@ export default function AppRoutes() {
 
 
           <Route path="/signup" element={<Signup />} />
+
+
+          <Route
+            path="/bookings"
+            element={
+              <ProtectedRoute>
+                <Bookings />
+              </ProtectedRoute>
+            }
+          />
+
+
+          <Route
+            path="/my-bookings"
+            element={
+              <ProtectedRoute>
+                <MyBookings />
+              </ProtectedRoute>
+            }
+          />
         </Route>
-
-
-        {/*
-        =================================================
-        USER ROUTES
-
-
-        Sprint 1 uses mock protection.
-
-
-        Real authentication arrives
-        in Sprint 2.
-
-
-        =================================================
-        */}
-
-
-        <Route
-          path="/bookings"
-          element={
-            <ProtectedRoute>
-              <Bookings />
-            </ProtectedRoute>
-          }
-        />
 
 
         {/*
@@ -293,6 +290,12 @@ export default function AppRoutes() {
             </ProtectedRoute>
           }
         >
+
+        <Route
+            path="shows"
+            element={<ShowManagement />}
+        />
+
           {/*
           ===============================================
           INDEX ROUTE
