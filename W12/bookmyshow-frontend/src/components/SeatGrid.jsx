@@ -1,5 +1,6 @@
-import Seat from "./Seat";
+// src/components/SeatGrid.jsx
 
+import Seat from "./Seat";
 
 export default function SeatGrid({ seats, selectedSeats, setSelectedSeats }) {
   function toggleSeat(seatNumber) {
@@ -10,19 +11,15 @@ export default function SeatGrid({ seats, selectedSeats, setSelectedSeats }) {
     }
   }
 
-
   return (
     <>
       <div style={styles.legend}>
         <span>⬜ Available</span>
 
-
         <span>🟩 Selected</span>
-
 
         <span>🟥 Booked</span>
       </div>
-
 
       <div style={styles.grid}>
         {seats.map((seat) => (
@@ -38,28 +35,20 @@ export default function SeatGrid({ seats, selectedSeats, setSelectedSeats }) {
   );
 }
 
-
 const styles = {
   legend: {
     display: "flex",
 
-
     gap: "20px",
-
 
     marginBottom: "20px",
   },
 
-
   grid: {
     display: "grid",
 
-
     gridTemplateColumns: "repeat(10, 50px)",
-
 
     gap: "10px",
   },
 };
-
-

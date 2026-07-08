@@ -1,5 +1,5 @@
+// MERN_Stu_FebMay26Mys\W12\Master_bookmyshow-frontend\src\components\admin\MovieForm.jsx
 import { useState, useEffect } from "react";
-
 
 export default function MovieForm({ initialData, onSubmit, buttonText }) {
   const [formData, setFormData] = useState({
@@ -10,7 +10,6 @@ export default function MovieForm({ initialData, onSubmit, buttonText }) {
     releaseDate: "",
     poster: "",
   });
-
 
   useEffect(() => {
     if (initialData) {
@@ -23,7 +22,6 @@ export default function MovieForm({ initialData, onSubmit, buttonText }) {
     }
   }, [initialData]);
 
-
   function handleChange(event) {
     setFormData({
       ...formData,
@@ -31,13 +29,10 @@ export default function MovieForm({ initialData, onSubmit, buttonText }) {
     });
   }
 
-
   function handleSubmit(event) {
     event.preventDefault();
 
-
     onSubmit(formData);
-
 
     setFormData({
       title: "",
@@ -49,7 +44,6 @@ export default function MovieForm({ initialData, onSubmit, buttonText }) {
     });
   }
 
-
   return (
     <form onSubmit={handleSubmit} style={styles.form}>
       <input
@@ -59,7 +53,6 @@ export default function MovieForm({ initialData, onSubmit, buttonText }) {
         onChange={handleChange}
         required
       />
-
 
       <select
         name="genre"

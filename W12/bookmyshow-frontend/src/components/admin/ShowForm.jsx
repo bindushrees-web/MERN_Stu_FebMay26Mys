@@ -1,31 +1,13 @@
-import { useState, useEffect } from "react";
+// MERN_Stu_FebMay26Mys\W12\bookmyshow-frontend\src\components\admin\ShowForm.jsx
+import { useState } from "react";
 
-
-export default function ShowForm({
-  movies,
-  onSubmit,
-  initialData,
-  buttonText,
-}) {
+export default function ShowForm({ movies, onSubmit }) {
   const [formData, setFormData] = useState({
     movieId: "",
     date: "",
     time: "",
     totalSeats: 50,
   });
-
-
-  useEffect(() => {
-    if (initialData) {
-      setFormData({
-        movieId: initialData.movieId?._id || initialData.movieId,
-        date: initialData.date ? initialData.date.split("T")[0] : "",
-        time: initialData.time || "",
-        totalSeats: initialData.totalSeats || 50,
-      });
-    }
-  }, [initialData]);
-
 
   function handleChange(event) {
     setFormData({
@@ -34,14 +16,11 @@ export default function ShowForm({
     });
   }
 
-
   function handleSubmit(event) {
     event.preventDefault();
 
-
     onSubmit(formData);
   }
-
 
   return (
     <form onSubmit={handleSubmit} style={styles.form}>
@@ -53,14 +32,12 @@ export default function ShowForm({
       >
         <option value="">Select Movie</option>
 
-
         {movies.map((movie) => (
           <option key={movie._id} value={movie._id}>
             {movie.title}
           </option>
         ))}
       </select>
-
 
       <input
         type="date"
@@ -70,7 +47,6 @@ export default function ShowForm({
         required
       />
 
-
       <input
         type="time"
         name="time"
@@ -79,7 +55,6 @@ export default function ShowForm({
         required
       />
 
-
       <input
         type="number"
         name="totalSeats"
@@ -87,12 +62,10 @@ export default function ShowForm({
         onChange={handleChange}
       />
 
-
-      <button type="submit">{buttonText}</button>
+      <button type="submit">Create Show</button>
     </form>
   );
 }
-
 
 const styles = {
   form: {

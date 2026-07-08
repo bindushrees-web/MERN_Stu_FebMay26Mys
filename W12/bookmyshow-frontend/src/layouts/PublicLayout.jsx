@@ -1,6 +1,5 @@
 // src/layouts/PublicLayout.jsx
 
-
 /*
 =========================================================
 SPRINT 1 – LAYOUTS
@@ -52,31 +51,20 @@ Layouts eliminate duplication.
 =========================================================
 */
 
-
 import { Outlet } from "react-router-dom";
-
 
 import Navbar from "../components/Navbar";
 
-
 export default function PublicLayout() {
-
-
   return (
-
-
     <>
-
-
       {/*
       ===================================================
       SHARED PUBLIC NAVIGATION
       ===================================================
       */}
 
-
       <Navbar />
-
 
       {/*
       ===================================================
@@ -112,45 +100,22 @@ export default function PublicLayout() {
       ===================================================
       */}
 
-
       <main style={styles.container}>
-
-
         <Outlet />
-
-
       </main>
-
-
     </>
-
-
   );
-
-
 }
 
-
 const styles = {
-
-
   container: {
-
-
     maxWidth: "1200px",
-
 
     margin: "0 auto",
 
-
-    padding: "25px"
-
-
-  }
-
-
+    padding: "25px",
+  },
 };
-
 
 /*
 =========================================================

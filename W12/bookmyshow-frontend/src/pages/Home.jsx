@@ -1,6 +1,5 @@
 // src/pages/Home.jsx
 
-
 /*
 =========================================================
 SPRINT 1 – HOME PAGE
@@ -18,8 +17,7 @@ TOPICS COVERED:
 WHY THIS COMPONENT?
 
 
-This is the landing page of our
-BookMyShow application.
+This is the landing page of our BookMyShow application.
 
 
 Responsibilities:
@@ -46,25 +44,19 @@ Personalized Recommendations
 =========================================================
 */
 
-
 import { useNavigate } from "react-router-dom";
-
 
 export default function Home() {
   const navigate = useNavigate();
-
 
   return (
     <section>
       {/* Hero Section */}
 
-
       <section style={styles.hero}>
         <h1>Welcome to BookMyShow</h1>
 
-
         <p>Discover movies, explore shows, and book tickets effortlessly.</p>
-
 
         <div style={styles.actions}>
           <button
@@ -73,7 +65,6 @@ export default function Home() {
           >
             Explore Movies
           </button>
-
 
           <button
             style={styles.secondaryButton}
@@ -84,13 +75,10 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* Features */}
-
 
       <section>
         <h2>What You Can Do</h2>
-
 
         <div style={styles.featureGrid}>
           <FeatureCard
@@ -98,12 +86,10 @@ export default function Home() {
             description="Explore currently available movies."
           />
 
-
           <FeatureCard
             title="Book Tickets"
             description="Reserve seats with ease."
           />
-
 
           <FeatureCard
             title="Track Bookings"
@@ -115,10 +101,8 @@ export default function Home() {
   );
 }
 
-
 function FeatureCard({
   title,
-
 
   description,
 }) {
@@ -126,80 +110,60 @@ function FeatureCard({
     <div style={styles.card}>
       <h3>{title}</h3>
 
-
       <p>{description}</p>
     </div>
   );
 }
 
-
 const styles = {
   hero: {
     textAlign: "center",
 
-
     padding: "60px 20px",
   },
-
 
   actions: {
     marginTop: "25px",
 
-
     display: "flex",
 
-
     justifyContent: "center",
-
 
     gap: "15px",
   },
 
-
   primaryButton: {
     padding: "12px 20px",
 
-
     cursor: "pointer",
   },
-
 
   secondaryButton: {
     padding: "12px 20px",
 
-
     cursor: "pointer",
   },
-
 
   featureGrid: {
     marginTop: "30px",
 
-
     display: "grid",
 
-
     gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-
 
     gap: "20px",
   },
 
-
   card: {
     background: "#fff",
 
-
     border: "1px solid #ddd",
 
-
     padding: "20px",
-
 
     borderRadius: "6px",
   },
 };
-
 
 /*
 =========================================================

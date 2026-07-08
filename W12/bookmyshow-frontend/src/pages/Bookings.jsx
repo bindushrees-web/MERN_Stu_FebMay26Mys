@@ -1,14 +1,9 @@
 // src/pages/Bookings.jsx
 
-
 /*
 =========================================================
 SPRINT 6 – BOOKING PAGE
-
-
 TOPICS COVERED:
-
-
 ✓ useLocation
 ✓ useNavigate
 ✓ Seat Selection
@@ -39,31 +34,22 @@ Booking Success
 =========================================================
 */
 
-
 import { useState, useEffect } from "react";
-
 
 import { useLocation, useNavigate } from "react-router-dom";
 
-
 import SeatGrid from "../components/SeatGrid";
-
 
 import { createBooking } from "../api/booking.api";
 
-
 import { getShowById } from "../api/show.api";
 
-
 import LoadingSpinner from "../components/LoadingSpinner";
-
 
 export default function Bookings() {
   const location = useLocation();
 
-
   const navigate = useNavigate();
-
 
   /*
   =====================================================
@@ -83,11 +69,9 @@ export default function Bookings() {
   =====================================================
   */
 
-
   const bookingData = location.state;
 
-
-    /*
+  /*
   =====================================================
   LOCAL STATE
 
@@ -95,15 +79,11 @@ export default function Bookings() {
   =====================================================
   */
 
-
   const [selectedSeats, setSelectedSeats] = useState([]);
-
 
   const [loading, setLoading] = useState(false);
 
-
   const [error, setError] = useState("");
-
 
   /*
   =====================================================
@@ -120,45 +100,33 @@ export default function Bookings() {
   =====================================================
   */
 
-
   if (!bookingData) {
     return (
       <section>
         <h1>My Bookings</h1>
-
 
         <p>Booking history integration will be added in the next step.</p>
       </section>
     );
   }
 
-
   const { movie, show } = bookingData;
 
-
-  const [showDetails, setShowDetails] =
-  useState(null);
-
+  const [showDetails, setShowDetails] = useState(null);
 
   useEffect(() => {
     async function fetchShow() {
       try {
-        const response =
-          await getShowById(show._id);
+        const response = await getShowById(show._id);
 
-
-        setShowDetails(
-          response.data,
-        );
+        setShowDetails(response.data);
       } catch (error) {
         console.error(error);
       }
     }
 
-
     fetchShow();
   }, [show._id]);
-
 
   /*
   =====================================================
@@ -168,25 +136,19 @@ export default function Bookings() {
   =====================================================
   */
 
-
   async function handleBooking() {
     try {
       setLoading(true);
 
-
       setError("");
-
 
       await createBooking({
         showId: show._id,
 
-
         selectedSeats,
       });
 
-
       alert("Booking created successfully!");
-
 
       navigate("/my-bookings");
     } catch (error) {
@@ -196,42 +158,31 @@ export default function Bookings() {
     }
   }
 
-
   if (!showDetails) {
     return <LoadingSpinner />;
   }
-
 
   return (
     <section>
       <h1>Book Tickets</h1>
 
-
       <div style={styles.summary}>
         <h2>{movie.title}</h2>
 
-
         <p>Genre: {movie.genre}</p>
-
 
         <p>Rating: {movie.rating}</p>
 
-
         <p>Date: {new Date(show.date).toLocaleDateString()}</p>
 
-
         <p>Time: {show.time}</p>
-
 
         <p>Available Seats: {showDetails.availableSeats}</p>
       </div>
 
-
       {error && <p style={styles.error}>{error}</p>}
 
-
       <h2>Select Seats</h2>
-
 
       <SeatGrid
         seats={showDetails.seats}
@@ -239,10 +190,8 @@ export default function Bookings() {
         setSelectedSeats={setSelectedSeats}
       />
 
-
       <div style={styles.selection}>
         <h3>Selected Seats</h3>
-
 
         {selectedSeats.length === 0 ? (
           <p>No seats selected.</p>
@@ -251,13 +200,11 @@ export default function Bookings() {
         )}
       </div>
 
-
       <button
         onClick={handleBooking}
         disabled={selectedSeats.length === 0 || loading}
         style={{
           ...styles.button,
-
 
           ...(selectedSeats.length === 0 || loading ? styles.disabled : {}),
         }}
@@ -268,54 +215,41 @@ export default function Bookings() {
   );
 }
 
-
 const styles = {
   summary: {
     border: "1px solid #ddd",
 
-
     padding: "20px",
-
 
     borderRadius: "8px",
 
-
     marginBottom: "30px",
   },
-
 
   selection: {
     marginTop: "30px",
   },
 
-
   button: {
     marginTop: "30px",
 
-
     padding: "12px 20px",
-
 
     cursor: "pointer",
   },
 
-
   disabled: {
     cursor: "not-allowed",
-
 
     opacity: 0.5,
   },
 
-
   error: {
     color: "red",
-
 
     marginBottom: "20px",
   },
 };
-
 
 /*
 =========================================================

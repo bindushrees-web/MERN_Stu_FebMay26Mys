@@ -1,19 +1,12 @@
 /*
 =========================================================
 SPRINT 4 – SHOW CARD
-
-
 TOPICS COVERED
-
-
 ✓ Reusable Components
 ✓ Props
 ✓ Event Handling
-
-
 =========================================================
 */
-
 
 export default function ShowCard({ show, onBook }) {
   return (
@@ -22,16 +15,13 @@ export default function ShowCard({ show, onBook }) {
         <strong>Date:</strong> {new Date(show.date).toLocaleDateString()}
       </p>
 
-
       <p>
         <strong>Time:</strong> {show.time}
       </p>
 
-
       <p>
         <strong>Available Seats:</strong> {show.availableSeats}
       </p>
-
 
       <button onClick={() => onBook(show)} style={styles.button}>
         Book Tickets
@@ -39,8 +29,6 @@ export default function ShowCard({ show, onBook }) {
     </article>
   );
 }
-
-
 const styles = {
   card: {
     background: "#fff",
@@ -48,7 +36,6 @@ const styles = {
     borderRadius: "8px",
     padding: "20px",
   },
-
 
   button: {
     marginTop: "15px",

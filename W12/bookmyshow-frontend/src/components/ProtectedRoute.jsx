@@ -1,6 +1,5 @@
 // src/components/ProtectedRoute.jsx
 
-
 /*
 =========================================================
 SPRINT 2 – REAL ROUTE PROTECTION
@@ -76,16 +75,11 @@ What are you allowed to access?
 =========================================================
 */
 
-
-import { Navigate, useLocation } from "react-router-dom";
-
-
+import { Navigate } from "react-router-dom";
 
 import { useAuth } from "../context/AuthContext";
 
-
 import LoadingSpinner from "../components/LoadingSpinner";
-
 
 export default function ProtectedRoute({ children, requiredRole }) {
   /*
@@ -99,12 +93,9 @@ export default function ProtectedRoute({ children, requiredRole }) {
   =====================================================
   */
 
-
   // const { isAuthenticated, user } = useAuth();
 
-
   const { isAuthenticated, user, loading } = useAuth();
-  const location = useLocation();
 
   /*
   =====================================================
@@ -117,22 +108,13 @@ export default function ProtectedRoute({ children, requiredRole }) {
   =====================================================
   */
 
-
   if (loading) {
     return <LoadingSpinner />;
   }
 
-
- if (!isAuthenticated) {
-  return (
-    <Navigate
-      to="/login"
-      replace
-      state={{ from: location }}
-    />
-  );
-}
-
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
 
   /*
   =====================================================
@@ -153,11 +135,9 @@ export default function ProtectedRoute({ children, requiredRole }) {
   =====================================================
   */
 
-
   if (requiredRole && user?.role !== requiredRole) {
     return <Navigate to="/" replace />;
   }
-
 
   /*
   =====================================================
@@ -167,10 +147,8 @@ export default function ProtectedRoute({ children, requiredRole }) {
   =====================================================
   */
 
-
   return children;
 }
-
 
 /*
 =========================================================

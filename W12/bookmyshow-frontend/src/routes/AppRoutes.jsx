@@ -1,3 +1,5 @@
+// src/routes/AppRoutes.jsx
+
 /*
 =========================================================
 SPRINT 1 – ROUTING BRAIN
@@ -50,12 +52,9 @@ Without this file:
 =========================================================
 */
 
-
 import { lazy, Suspense } from "react";
 
-
 import { Routes, Route, Navigate } from "react-router-dom";
-
 
 /*
 =========================================================
@@ -63,10 +62,8 @@ SHARED COMPONENTS
 =========================================================
 */
 
-
 import LoadingSpinner from "../components/LoadingSpinner";
 import ProtectedRoute from "../components/ProtectedRoute";
-
 
 /*
 =========================================================
@@ -93,10 +90,8 @@ Outlet
 =========================================================
 */
 
-
 import PublicLayout from "../layouts/PublicLayout";
 import AdminLayout from "../layouts/AdminLayout";
-
 
 /*
 =========================================================
@@ -125,30 +120,21 @@ NOT tiny reusable components.
 =========================================================
 */
 
-
 const Home = lazy(() => import("../pages/Home"));
-
 
 const Movies = lazy(() => import("../pages/Movies"));
 
-
 const Login = lazy(() => import("../pages/Login"));
-
 
 const Signup = lazy(() => import("../pages/Signup"));
 
-
 const Bookings = lazy(() => import("../pages/Bookings"));
-
 
 const NotFound = lazy(() => import("../pages/NotFound"));
 
-
 const Dashboard = lazy(() => import("../pages/admin/Dashboard"));
 
-
 const MovieManagement = lazy(() => import("../pages/admin/MovieManagement"));
-
 
 const MovieDetails = lazy(() => import("../pages/MovieDetails"));
 
@@ -197,7 +183,6 @@ FALLBACK
 =========================================================
 */
 
-
 export default function AppRoutes() {
   return (
     /*
@@ -211,7 +196,6 @@ export default function AppRoutes() {
 
     =====================================================
     */
-
 
     <Suspense fallback={<LoadingSpinner />}>
       <Routes>
@@ -228,22 +212,16 @@ export default function AppRoutes() {
         =================================================
         */}
 
-
-       <Route element={<PublicLayout />}>
+        <Route element={<PublicLayout />}>
           <Route path="/" element={<Home />} />
-
 
           <Route path="/movies" element={<Movies />} />
 
-
           <Route path="/movies/:id" element={<MovieDetails />} />
-
 
           <Route path="/login" element={<Login />} />
 
-
           <Route path="/signup" element={<Signup />} />
-
 
           <Route
             path="/bookings"
@@ -253,7 +231,6 @@ export default function AppRoutes() {
               </ProtectedRoute>
             }
           />
-
 
           <Route
             path="/my-bookings"
@@ -265,6 +242,20 @@ export default function AppRoutes() {
           />
         </Route>
 
+        {/*
+        =================================================
+        USER ROUTES
+
+
+        Sprint 1 uses mock protection.
+
+
+        Real authentication arrives
+        in Sprint 2.
+
+
+        =================================================
+        */}
 
         {/*
         =================================================
@@ -281,7 +272,6 @@ export default function AppRoutes() {
         =================================================
         */}
 
-
         <Route
           path="/admin"
           element={
@@ -290,12 +280,6 @@ export default function AppRoutes() {
             </ProtectedRoute>
           }
         >
-
-        <Route
-            path="shows"
-            element={<ShowManagement />}
-        />
-
           {/*
           ===============================================
           INDEX ROUTE
@@ -309,16 +293,14 @@ export default function AppRoutes() {
           ===============================================
           */}
 
-
           <Route index element={<Dashboard />} />
-
 
           <Route path="dashboard" element={<Dashboard />} />
 
-
           <Route path="movies" element={<MovieManagement />} />
-        </Route>
 
+          <Route path="shows" element={<ShowManagement />} />
+        </Route>
 
         {/*
         =================================================
@@ -331,13 +313,11 @@ export default function AppRoutes() {
         =================================================
         */}
 
-
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   );
 }
-
 
 /*
 =========================================================
