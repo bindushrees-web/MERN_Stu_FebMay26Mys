@@ -1,3 +1,4 @@
+  //MERN_Stu_FebMay26Mys\W9\D0\movie-booking-backend\src\services\show.service.js
   const Show = require("../models/Show");
   const Movie = require("../models/Movie");
   const CustomError = require("../utils/customError");
@@ -91,7 +92,7 @@
   UPDATE SHOW
   -----------------------------------------
   */
-exports.updateShow = async (id, updateData) => {
+    exports.updateShow = async (id, updateData) => {
       const show = await Show.findById(id);
 
 
@@ -162,7 +163,6 @@ exports.updateShow = async (id, updateData) => {
 
       return updatedShow;
     };
-
 
   /*
   -----------------------------------------
